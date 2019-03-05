@@ -1,0 +1,233 @@
+.user{
+    margin-bottom: 1rem;
+    background: #fff;
+    .van-cell__value{
+        color: rgb(130, 130, 245);
+    }
+    .top-box{
+         background: url(../assets/images/user/bg.jpg);
+         background-size: 100%;
+         padding-top: .88rem;
+        .main-info{
+            width: 6.14rem;
+            height: 2.44rem;
+            background: #fff;
+            margin: auto;
+            border-radius: .5rem;
+            position: relative;
+            .user-head{
+                padding: .2rem 0;
+                display: flex;
+                flex-direction: column;
+                z-index: 999;
+                align-items: center;
+                justify-content: center;
+                min-height: 2rem;
+                img{
+                    width: .92rem;
+                    height: .92rem;
+                    border-radius: 50%;
+                }
+                p{
+                    font-size: .24rem;
+                    &:last-child{
+                        width: 1.28rem;
+                        height: .3rem;
+                        background: rgb(211,158,70);
+                        border-radius: .16rem;
+                        color: white;
+                        text-align: center;
+                        margin-top: .1rem;
+                        // padding: .05rem 0;
+                        height: .4rem;
+                        line-height: .4rem;
+                    }
+                }
+            }
+            .side{
+                border-top: 1rem solid;
+                height: .87rem;
+                position:absolute;
+                bottom: 0;
+                z-index: 1;
+            }
+            .left-bg{
+                border-left: 1.5rem solid;
+                left: -.68rem;
+                border-color: transparent #fff #fff #fff;
+            }
+            .right-bg{
+                border-right: 1.5rem solid;
+                right: -.68rem;
+                bottom: 0;
+                border-color: transparent #fff #fff #fff;
+            }
+        }
+    }
+    
+    .notice{
+        width: 100%;
+        height: .8rem;
+        background: #2b3840;
+        display: flex;
+        .horn{
+            width: .8rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: red;
+            img{
+                width: .4rem;
+                height: .4rem;
+            }
+        }
+        .notice-txt{
+            color: white;
+            width: 6.7rem;
+            text-indent: .2rem;
+            .van-swipe{
+                line-height: .8rem;
+                height: .8rem !important;
+            }
+        }
+    }
+    .my-event{
+        margin-top: .2rem;
+        .my-title{
+            display: flex;
+            justify-content: space-between;
+            padding: .2rem .2rem;
+            background: #fff;
+            border-bottom: 1px solid #ddd;
+            p{
+                font-size: .26rem;
+                &:last-child{
+                    font-size: .24rem;
+                    color: #197ffe;
+                }
+            }
+        }
+        .my-order{
+            .order-list{
+                ul{
+                    display: flex;
+                    li{
+                        width: 20%;
+                        text-align: center;
+                        padding: .2rem 0;
+                        img{
+                            width: .8rem;
+                            margin: auto;
+                        }
+                        p{
+                            padding: .1rem 0;
+                            font-size: .24rem;
+                            position: relative;
+                            .badge{
+                                width: .3rem;
+                                height: .3rem;
+                                border-radius: 50%;
+                                line-height: .3rem;
+                                color: white;
+                                background: red;
+                                position: absolute;
+                                display: inline-block;
+                                font-style: normal;
+                                top: 0;
+                                right: .18rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my-gold{
+            .gold-list{
+                ul{
+                    display: flex;
+                    li{
+                        width: 25%;
+                        padding: .3rem 0;
+                        text-align: center;
+                        p{
+                            span{
+                                color: red;
+                            }
+                            &:last-child{
+                                margin-top: .2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .my-invi{
+            text-align: center;
+            .invi-list{
+                ul{
+                    display: flex;
+                    flex-wrap: wrap;
+                    li{
+                        width: 33.3%;
+                        text-align: center;
+                        padding-top: .3rem;
+                        p{
+                            span{
+                                color: red;
+                            }
+                            &:nth-child(2){
+                                margin-top: .03rem;
+                            }
+                        }
+                       
+                    }
+                }
+            }
+            .goInvi{
+                background: #f6cf08;
+                font-size: .3rem;
+                width: 7.1rem;
+                height: .66rem;
+                border: none;
+                border-radius: .06rem;
+                margin: .3rem 0;
+                color: rgb(223, 104, 104);
+            }
+        }
+        .menuList{
+            ul{
+                display: flex;
+                flex-wrap: wrap;
+                li{
+                    width: 33.3%;
+                    text-align: center;
+                    margin: .1rem 0;
+                    span{
+                        display: inline-block;
+                    }
+                    img{
+                        margin: auto;
+                        width: .6rem;
+                        height: .6rem;
+                    }
+                    p{
+                        margin-top: .1rem;
+                    }
+                }
+            }
+        }
+    }
+    .contact{
+        width: 80%;
+        p{
+            font-size: .32rem;
+            padding: .5rem 0;
+            text-align: center;
+        }
+        .bottom{
+            display: flex;
+            justify-content: space-around;
+            padding: .4rem 0;
+        }
+    }
+}

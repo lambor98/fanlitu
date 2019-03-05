@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>返利兔</title>
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but h5 doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app">
+
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+  
+  <script>
+
+   
+    if(!isFlex()){
+        var msg = confirm("您的浏览器版本太低，请升级浏览器或者下载最新版谷歌浏览器")
+        if(msg == true){
+          location.href = "http://h5.fl.cn/auth/down"
+        }else{
+          history.back(-1)
+        }
+    }
+
+    function isFlex(){
+      if( 'flex' in document.documentElement.style){
+            return true;
+      }else{
+            return false;
+      } 
+    }
+ 
+  </script>
+</html>

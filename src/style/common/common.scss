@@ -1,0 +1,20 @@
+.box{
+    margin-bottom: 1rem;
+    margin-top: .88rem;
+}
+.nogoods{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img{
+        width: 2.4rem;
+        margin-top: 1.6rem;
+    }
+    p{
+        color: #999;
+    }
+}
+body{
+    background: #fff;
+    min-height: 100vh;
+}

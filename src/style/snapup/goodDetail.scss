@@ -1,0 +1,188 @@
+.goodDetail{
+    background: #fff;
+    .detail_pic{
+        img{
+            max-width: 100%;
+            width: auto;
+        }
+    }
+    .good-top{
+        img{
+            width: 100%;
+            height: 6.7rem;
+        }
+        .money-bottom{
+            width: 100%;
+            display: flex;
+            background: #2b3840;
+            height: .8rem;
+            color: white;
+            p{
+                width: 72%;
+                &:last-child{
+                    width: 28%;
+                    background: red;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    span{
+                        display: block;
+                    }
+                } 
+                &:first-child{
+                    line-height: .8rem;
+                    padding-left: .15rem;
+                    font-size: .34rem;
+                }           
+            }
+        }
+    }
+    .good-main{
+        .good-detail{
+            padding:0 .3rem;
+            .detail-title{
+                margin-top: .4rem;
+                display: flex;
+                img{
+                    width: .3rem;
+                    height: .3rem;
+                }
+                p{
+                    font-weight: bold;
+                    padding-left: .12rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-size: .24rem;
+                }
+            }
+            .detail-price{
+                display: flex;
+                padding: .12rem 0;
+                li{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    del{
+                        padding-left: .12rem;
+                    }
+                    width: 40%;
+                    &:last-child{
+                        width: 60%;
+                        text-align: right;
+                        font-size: .2rem;
+                    }
+                    
+                    del{
+                        color: #999;
+                    }
+                }
+            }
+            .detail-num{
+                display: flex;
+                justify-content: space-between;
+                li{
+                    width: 30%;
+                    &:last-child{
+                        text-align: right;
+                    }
+                }
+            }
+            
+        }
+        .buy-step{
+            font-size: .24rem;
+            margin-top: .25rem;
+            p{
+                padding: .2rem .3rem;
+            }
+            ul{
+                display: flex;
+                width: 100%;
+
+                li{
+                    width:25%;
+                    display: flex;
+                    justify-content:space-around;
+                    align-items: center;
+                    padding: .1rem 0;
+                    &:first-child{
+                        img{
+                            visibility: hidden;
+                        }
+                    }
+                    img{
+                        width: .13rem;
+                        height: .25rem;
+                    }
+                    span{
+                        font-size: .26rem;
+                        padding-left: .2rem;
+                        &:last-child{
+                            padding-right: .2rem;
+                            text-align: center;
+                            font-size: .22rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .red{
+            color: red;
+            font-size: .28rem;
+            font-weight: bold;
+        }
+    }
+    .good-bottom{
+        z-index: 999;
+        width: 100%;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        border: none;
+        li{
+            background: #f2f2f2;
+            width: .8rem;
+            height: .8rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            img{
+                width: .3rem
+            }
+            &:last-child{
+                background: red;
+                width: 6.7rem;
+                text-align: center;
+                font-size: .36rem;
+                line-height: .8rem;
+                color: white;
+            }
+        }
+    }
+    .van-tabs{
+        .van-tab{
+            color: #000;
+            font-size: .24rem !important;
+        }
+        .van-tab--active{
+            background: red !important;
+            color: white;
+            font-size: .24rem !important;
+        }
+       
+    }
+    .tip{
+        p{
+            text-align: center;
+            color:#999;
+            margin-top: .2rem;
+        }
+    }
+}

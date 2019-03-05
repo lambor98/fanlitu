@@ -1,0 +1,160 @@
+.quickLogin,.register{
+    margin-top: 1.4rem !important;
+    form{
+        .loginbox{
+            width:7.1rem;
+            height: .8rem; 
+            border: 1px solid #ddd;
+            margin: auto;
+            margin-top: .6rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            input{
+                width: 6rem;
+                font-size: .26rem;
+                border: none;
+                margin-left: .2rem;
+                background: transparent;
+            }
+            img{
+                position: absolute;
+                width: .26rem;
+                &:last-child{
+                    width: .4rem;
+                    right: .2rem;
+                }
+                &:first-child{
+                    left: .2rem;
+                }
+            }
+            .worn{
+                position: absolute;
+                bottom: -.5rem;
+                color: red;
+                display:inline;
+                left: .2rem;
+            }
+        }
+        .codebox{
+            position: relative;
+            width:7.1rem;
+            height: .8rem; 
+            margin: auto;
+            margin-top: .6rem;
+            display: flex;
+            justify-content: space-between; 
+            .code-left{
+                position: relative;
+                width: 4.4rem;
+                height: .8rem; 
+                border: 1px solid #ddd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: .26rem;
+                    position: absolute;
+                    left: .2rem;
+                }
+                input{
+                    width: 76%;
+                    font-size: .26rem;
+                    border: none;
+                    margin-left: .2rem;
+                    background: transparent;
+                }
+            }
+            .code-right{
+                height: .84rem;
+                img{
+                    width: 2.6rem;
+                    height: .84rem;;
+                }
+                p{
+                    width: 2.6rem;
+                    height: 100%;
+                    background: rgb(255, 205, 11);
+                    text-align: center;
+                    line-height: .847rem;
+                    font-size: .34rem;
+                    color: red;
+                }
+            }
+            .worn{
+                position: absolute;
+                bottom: -.5rem;
+                color: red;
+                display:inline;
+                left: .2rem;
+            }
+
+        }
+        .agreement{
+            display: flex;
+            width: 7.1rem;
+            margin: .6rem auto auto auto;
+            padding: .4rem 0;
+            font-size: .22rem;
+            padding: .4rem 0;
+            position: relative;
+            p{
+                line-height: .34rem;
+                margin-left: .1rem;
+                &:last-child{
+                    color: red;
+                    margin: 0;
+                }
+            }
+            span{
+                position: absolute;
+                right: 2rem;
+                color: red;
+                font-size: .28rem;
+            }
+            .van-checkbox{
+                .van-icon{
+                    border-color: #000 !important;
+                    width: .3rem !important;
+                    height: .3rem !important;
+                    line-height: .3rem !important;
+                    display: block;
+                }
+            }
+        }
+        .btn{
+            width: 7.1rem;
+            height: .8rem;
+            background: red;
+            display: block;
+            margin: auto;
+            text-align: center;
+            line-height: .8rem;
+            color: white;
+            font-size: .34rem;
+            border-radius: .1rem;
+        }
+        .loginType{
+            font-size: .34rem;
+            text-align: center;
+            p{
+                padding: .3rem 0;
+            }
+            ul{
+                display: flex;
+                font-size: .26rem;
+                width: 35%;
+                margin: auto;
+                color: #197ffe;
+                justify-content: space-around;
+                li{
+                    width: 50%;
+                    &:last-child{
+                        border-left: 1px solid;
+                    }
+                }
+            }
+        }
+    }
+}

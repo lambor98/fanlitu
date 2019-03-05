@@ -1,0 +1,139 @@
+.comment{
+    .goods{
+        margin: 1rem .2rem  0 .2rem;
+        display: flex;
+        border-radius: .1rem;
+        border:  1px solid #ddd;
+        img{
+            width: 1.9rem;
+            height: 1.9rem;
+            padding: .19rem .14rem;
+        }
+        .goods-right{
+            width: 50%;
+            padding-left: .1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            p{
+                width: 100%;
+                text-align: left;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                padding-top: .1rem;
+            }
+        }
+      
+    }
+    .sonBox{
+        .red{
+            color: red;
+        }
+        ul{
+            margin: .2rem;
+            li{
+                .title{
+                    background: url('../../assets/images/shoppingStep/notice.png')left  no-repeat;
+                    background-size: .2rem;
+                    padding-left: .3rem;
+                    margin-top: .2rem;
+                }
+                .reason{
+                    color: red;
+                    padding: .4rem 0;
+                    text-align: center;
+                }
+                textarea{
+                    margin-top: .2rem;
+                    border: .005rem solid #ddd;
+                    width:  6.7rem;
+                    font-size: .22rem;
+                    padding: .2rem;
+                    resize: none;
+                }
+                
+            }
+        }
+        dl{
+            margin: 0 .2rem;
+            margin-top: .3rem;
+            dt{
+                font-size: .26rem;
+            }
+            dd{
+                line-height: .36rem;
+                color: rgb(153, 153, 153);
+            }
+        }
+        .btn{
+            width: 100%;
+            height: .88rem;
+            background: red;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            font-size: .34rem;
+            text-align: center;
+            line-height: .88rem;
+        }
+        .copyBtn{
+            width: 2rem;
+            height: .5rem;
+            background: rgb(246, 207, 8);
+            line-height: .5rem;
+            text-align: center;
+            color: #9a6301;
+            border-radius: .05rem;
+            margin:.3rem auto;
+        }
+        .tip{
+            color: #999;
+            margin-top: .2rem;
+        }
+        .van-cell{
+            font-size: .24rem !important;
+        }
+        .van-cell__value{
+            color: #197ffe;
+        }
+        .pic_wuxin{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            img{
+                width: 2rem;
+                height: 2rem;
+                padding: .2rem 0;
+            }
+        }
+        .worn{
+            margin: .2rem 0;
+            display: flex;
+            p{
+                &:first-child{
+                    width: 12%;
+                    color: red;
+                    line-height: .4rem;
+                }
+                span{
+                    display: block;
+                    color: #999;
+                    line-height: .4rem;
+                }
+            }
+        }
+        .pic_list{
+            display: flex;
+            flex-wrap: wrap;
+            img{
+                width: 2rem;
+                height: 2rem;
+                margin-left: .2rem;
+                margin-top: .2rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,146 @@
+
+.van-tab{
+    color: #000;
+    font-size: .28rem;
+}
+.van-tabs{
+    .van-tab--active{
+        // font-weight: bolder !important;
+        font-size: .28rem !important;
+        color: white;
+        background: red;
+    
+    }
+}
+.allgoods{
+    background: #fff;
+    .van-dialog{
+        .tip{
+            padding-top: .2rem;
+            color: #666;
+            font-size: .24rem;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+        .van-radio-group{
+            margin-top: .2rem;
+            margin-left: .7rem;
+            .van-radio__label{
+            font-size: .24rem !important;
+            }
+            .van-radio__input{
+                font-size: .3rem;
+                border: 1px solid #ddd;
+                border-radius: 50%;
+            }
+        }
+        .dialog-input{
+            border: 1px solid #ddd;
+            width: 50%;
+            padding: .1rem 0;
+            margin-left: 1.2rem;
+            margin-top: .2rem;
+            margin-bottom: .2rem;
+            font-size: .24rem;
+        }
+       
+    }
+    .main-box{
+        ul{
+            // margin-top: .2rem;
+            li{
+                .mint-cell{
+                    min-height: .64rem;
+                    span{
+                        font-size: .24rem;
+                    }
+                    img{
+                        display: inline-block;
+                        width: .35rem;
+                        height: .35rem;
+                    }
+                    .mint-cell-wrapper{
+                        // width: 98%;
+                        // border-bottom: .008rem solid ;
+                        // margin: 0 .1rem;
+                    }
+                }
+                .each-good{
+                    width: 100%;
+                    display: flex;
+                    border: none;
+                    .orderInfo{
+                        width: 33.33%;
+                        padding: .2rem 0;
+                    }
+                    .left-box{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        img{
+                            width: 1.9rem;
+                            height: 1.9rem;
+                            display: block;
+                        }
+                    }
+                    .mid-box{
+                        width: 42%;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-around;
+                        p{
+                            width: 100%;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            span{
+                                color: red;
+                            }
+                        }
+                    }
+                    .right-box{
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: center;
+                        align-items: center;
+                        width: 25%;
+                        p{
+                            margin: .08rem .3rem;
+                            overflow: hidden;
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                        }
+                        .redp{
+                            color: red !important;
+                        }
+                        .orderState{
+                            color:rgb(153, 153, 153)
+                        }
+                        .toEva{
+                            width: 1.36rem;
+                            height: .4rem;
+                            text-align: center;
+                            line-height: .4rem;
+                            background: rgb(246, 207, 8);
+                            border-radius: .06rem;
+                            color: rgb(154, 99, 1);
+                        }
+                        .cancelOrder{
+                            color: rgb(25, 127, 254);
+                            margin-right: .5rem;
+                        }
+                        .waitBack,.waitPay{
+                            color: red;
+                        }
+                        .alreadyBack{
+                            color: rgb(170, 159, 159);
+                        }
+                    
+                    }
+                }
+            }
+        }
+    }
+}
+

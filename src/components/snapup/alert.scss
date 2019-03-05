@@ -1,0 +1,101 @@
+.alert-box{
+.success,.fail{
+    background: rgba($color: #000, $alpha: 0.2);
+    position: fixed;
+    height: 100vh;
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    .box{
+        width: 5.26rem;
+        height: 6.96rem;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        img{
+            width: 100%;
+        }
+        .abs{
+            position: absolute;
+            &.tip{
+                top: 1.2rem;
+                font-size: .46rem;
+                font-weight: bolder;
+                text-align: center;
+                left:1.2rem;
+            }
+            &.tip2{
+                width: 96%;
+                height: .92rem;
+                background: #f86c8f;
+                border-radius: .2rem;
+                top: 2.6rem;
+                left: 0;
+                right: 0;
+                margin: auto;
+                p{
+                    text-align: center;
+                    font-size: .28rem;
+                    color: white;
+                    line-height: .46rem;
+                    span{
+                        display: inline-block;
+                        background: #000;
+                        width: .38rem;
+                        height: .38rem;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: .4rem;
+
+                    }
+                }
+            }
+            &.time{
+                width: 100%;
+                display: flex;
+                justify-content:center;
+                bottom: 2.2rem;
+                li{
+                    width: 25%;
+                    text-align: center;
+                    span{
+                        color: white;
+                        -webkit-text-stroke: .5px #000;  
+                        font-size: .18rem;
+                    }
+                    .time-box{
+                        display: flex;
+                        justify-content: space-around;
+                        p{
+                            width:.38rem;
+                            height: .55rem;
+                            background: #9a6301;
+                            color: white;
+                            font-size: .48rem;
+                            text-align: center;
+                            line-height: .55rem;
+                        }
+                    }
+                }
+            }
+            &.btn{
+                width: 2.66rem;
+                height: .8rem;
+                bottom: .36rem;
+                left: 1.25rem;
+            }
+            &.backTime{
+                top: 2.8rem;
+                color: red;
+                font-size: .38rem;
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+}
+}
