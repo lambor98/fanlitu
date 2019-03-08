@@ -12,7 +12,7 @@ module.exports={
         publicPath:"",
         proxy:{
             "/h5":{
-                target:"http://api.fanli.cn",
+                target:"http://api.fanli.cn/h5",
                 secure:false,
                 pathRewrite:{
                     "^/h5":""

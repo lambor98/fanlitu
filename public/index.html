@@ -19,9 +19,7 @@
     <!-- built files will be auto injected -->
   </body>
   
-  <script>
-
-   
+  <script type="text/javascript">
     if(!isFlex()){
         var msg = confirm("您的浏览器版本太低，请升级浏览器或者下载最新版谷歌浏览器")
         if(msg == true){
@@ -30,7 +28,6 @@
           history.back(-1)
         }
     }
-
     function isFlex(){
       if( 'flex' in document.documentElement.style){
             return true;
@@ -38,6 +35,5 @@
             return false;
       } 
     }
- 
   </script>
 </html>
