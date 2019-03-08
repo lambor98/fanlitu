@@ -53,7 +53,7 @@ export default {
             this.isShow = value;
             setTimeout(() => {
                 this.$router.go(0)
-            }, 1000);
+            }, 3000);
         },
          submit(){
            if(this.num%10==0){
@@ -76,10 +76,12 @@ export default {
                 Toast.fail(res.data.msg)
             }
         }).catch(err=>{
-            Toast.fail("错误："+err)
-            setTimeout(() => {
-                this.$router.go(-1)
-            }, 2000);
+            if(err){
+                Toast.fail("错误："+err)
+                setTimeout(() => {
+                    this.$router.go(-1)
+                }, 2000);
+            }
         })
         this.resizeWindow()
     },

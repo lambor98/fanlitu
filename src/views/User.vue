@@ -36,12 +36,12 @@
                 </router-link>
                 <div class="order-list">
                     <ul>
-                        <li v-for="(item,index) in orderList" :key="index">
+                        <router-link :to="{name:'allgoods',query:{type:item.type}}" tag="li" v-for="(item,index) in orderList" :key="index">
                             <i>
                                 <img :src="item.img" alt="">
                             </i>
                             <p>{{item.txt}}<i class="badge" v-if="userState.pro[index]!=0">{{userState.pro[index]}}</i></p>
-                        </li>
+                        </router-link>
                     </ul>
                 </div>
             </div>
@@ -99,11 +99,11 @@ export default {
         return {
             notice:[{title:"请各位试客加强网络安全防范意识"},{title:"请各位试客加强网络安全防范意识"},{title:"请各位试客加强网络安全防范意识"}],
             orderList:[
-                {txt:"待下单",img:require("../assets/images/user/order1.png")},
-                {txt:"待确定",img:require("../assets/images/user/order2.png")},
-                {txt:"待评价",img:require("../assets/images/user/order3.png")},
-                {txt:"待返款",img:require("../assets/images/user/order4.png")},
-                {txt:"已完成",img:require("../assets/images/user/order5.png")},
+                {txt:"待下单",img:require("../assets/images/user/order1.png"),type:"1"},
+                {txt:"待确定",img:require("../assets/images/user/order2.png"),type:"1"},
+                {txt:"待评价",img:require("../assets/images/user/order3.png"),type:"1"},
+                {txt:"待返款",img:require("../assets/images/user/order4.png"),type:"2"},
+                {txt:"已完成",img:require("../assets/images/user/order5.png"),type:"3"},
             ],
             goldList:[{txt:"已返金币",name:"returned"},
                     {txt:"待返利金币",name:"wait_return"},

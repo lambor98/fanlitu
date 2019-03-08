@@ -44,7 +44,6 @@ export default {
             imgName:[],  //买家截图名称
             txt:null,    //评论
             path:require("../../../assets/images/user/img1.png"),  //截图路径
-            
         }
     },
     methods:{
@@ -61,12 +60,12 @@ export default {
                         this.imgName = res.data.data.filedir
                     }else{
                         Toast.faile("图片上传失败")
-                        this.imgName = require('../../../assets/images/user/img1.png')
+                        this.imgName = require('../../../assets/images/user/img1.png');
                     }
                 }).catch(err=>{
                     if(err){
                         Toast.fail("上传失败,请重新上传")
-                         this.imgName = require('../../../assets/images/user/img1.png')
+                        this.imgName = require('../../../assets/images/user/img1.png');
                     }
                 })
             })

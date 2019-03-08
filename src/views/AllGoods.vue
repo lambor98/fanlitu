@@ -90,6 +90,7 @@ export default {
         this.getReason();
         document.documentElement.scrollTop = 0 ;
         document.body.scrollTop = 0;
+      
     },
     components:{
         Footer,
@@ -104,10 +105,16 @@ export default {
     },
     methods:{
         ...mapActions(["isLogin","getReason"]),
-        changeTab(){ //切换Tab
-            axios.post(this.url+"/order/pro",{val:(this.active*1+1)}).then(res=>{
+        changeTab(type){ //切换Tab
+            type = type?type:this.active
+            axios.post(this.url+"/order/pro",{val:(type*1+1)}).then(res=>{
                 if(res.data.status == "1000"){
                     this.goodsinfo = res.data.data.list
+                }else{
+                    Toast.fail(res.data.msg)
+                }
+                if(this.$route.query.type){  //是否是从个人中心页面跳转
+                    this.active = this.$route.query.type
                 }
              }).catch(err=>{
                  Toast.fail(err+"错误，请刷新或者联系管理员")
