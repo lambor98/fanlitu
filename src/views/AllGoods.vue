@@ -79,6 +79,7 @@ export default {
             radio:null,         //放弃单选框值
             otherReason:null,   //取消原因
             cancelId:null,      //取消订单商品ID
+            flag:true,         //解决个人中心跳转至全部订单无法切换tab
 
         }
     },
@@ -113,8 +114,9 @@ export default {
                 }else{
                     Toast.fail(res.data.msg)
                 }
-                if(this.$route.query.type){  //是否是从个人中心页面跳转
+                if(this.$route.query.type && this.flag){  //是否是从个人中心页面跳转
                     this.active = this.$route.query.type
+                    this.flag = false
                 }
              }).catch(err=>{
                  Toast.fail(err+"错误，请刷新或者联系管理员")

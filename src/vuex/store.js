@@ -8,7 +8,7 @@ export default new Vuex.Store({
   state: {
     randomCode:"", //验证码初始图片
     userinfo:{},  //用户信息
-    url:"",   //请求匹配
+    url:"/h5",   //请求匹配
     imgHeader:"http://image.fanli.cn/",  //图片开头
     userState:{ //首页用户所有状态
       had_wit: null,

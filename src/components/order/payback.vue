@@ -17,8 +17,18 @@
                     <p>到手价：<span>￥{{item.goods_price}}</span></p>
                 </div>
                 <div class="right-box orderInfo">
-                    <p class="waitBack" v-if="item.order_status!=160">待返利</p>
-                    <p class="alreadyBack"  v-if="item.order_status==160">已返利</p>
+                    <!-- <p class="waitBack" v-if="item.order_status!=160">待返利</p>
+                    <p class="alreadyBack"  v-if="item.order_status==160">已返利</p> -->
+                    <p :class="'orderState '+(item.order_status==10||item.order_status==21||item.order_status==51?'redp':'')">{{item.order_msg}}</p>
+                    <p class="toEva" v-if="item.order_status==21" @click="$router.push({name:'going',query:{order_id:item.order_id,trade_id:item.trade_id,repay:true}})">重新支付</p>
+                    <p class="toEva" v-if="item.hao_type==1&&(item.order_status==30||item.order_status==51)" @click="$router.push({name:'wuxin',query:{oId:item.order_id,type:0}})">{{item.order_status==51?'重新评价':'五星评价'}}</p>
+                    <p class="toEva" v-if="item.hao_type==2&&(item.order_status==30||item.order_status==51)" @click="$router.push({name:'pic',query:{oId:item.order_id,type:1}})">{{item.order_status==51?'重新评价':'图文评价'}}</p>
+                    <p class="toEva" v-if="item.hao_type==3&&(item.order_status==30||item.order_status==51)" @click="$router.push({name:'keywords',query:{oId:item.order_id,type:2}})">{{item.order_status==51?'重新评价':'关键词评价'}}</p>
+                    <p class="cancelOrder" v-if="item.order_status==10" @click="cancel(item.order_id)">取消订单&nbsp;</p>
+                    <p class="toEva" v-if="item.hao_type==1&&item.order_status==60" @click="$router.push({name:'copywuxin',query:{oId:item.order_id,type:0}})">复制评价</p>
+                    <p class="toEva" v-if="item.hao_type==2&&item.order_status==60" @click="$router.push({name:'copypic',query:{oId:item.order_id,type:1}})">复制评价</p>
+                    <p class="toEva" v-if="item.hao_type==3&&item.order_status==60" @click="$router.push({name:'copykey',query:{oId:item.order_id,type:2}})">复制评价</p>
+               
                 </div>
             </div>
         </li>
