@@ -31,11 +31,16 @@
                
                 </div>
             </div>
+            <div class="countTime" v-if="item.over_time">
+                <CountTime :min="item.over_time.min" :sec="item.over_time.sec" :id="item.order_id" :tId="item.trade_id"/>
+            </div>
         </li>
     </ul>
 </template>
 <script>
-import {mapState} from "vuex"
+import {mapState} from "vuex";
+import CountTime from "./countTime"
+
 export default {
     props:["goodsinfo","active"],
     // updated() {
@@ -44,6 +49,9 @@ export default {
     computed: {
         ...mapState(["imgHeader"])
     },
+    components:{
+        CountTime
+    }
     
 }
 </script>
