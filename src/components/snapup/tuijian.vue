@@ -40,11 +40,19 @@ export default {
         axios.post(this.url+"/order/complete").then(res=>{
             this.recommend = res.data.data.list
         }).catch(err=>{
-              Toast.fail("加载错误:"+err)
-          })
+            Toast.fail("加载错误:"+err)
+        })
     },
     computed:{
         ...mapState(["url","imgHeader"])
+    },
+    methods:{
+        buy(id,trade_plan_id){
+            this.$router.push({path:"/snapup/gooddetail",query:{id,tId:trade_plan_id}})
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;   //重置高度
+            this.$router.go(0)
+        }
     }
     
 }

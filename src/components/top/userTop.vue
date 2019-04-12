@@ -4,12 +4,12 @@
             <router-link to="/" slot="left">
                 <mt-button icon="back">返回</mt-button>
             </router-link>
-            <mt-button @click="$router.push('/userCenter/userinfo')" class="setUp" slot="right"><img :src="require('../../assets/images/user/setUp.png')" alt=""></mt-button>
+            <mt-button @click="$router.push('/userCenter/userinfo')" class="setUp" slot="right"><img :src="imgHeader+'static/user/setUp.png'" alt=""></mt-button>
         </mt-header>
     </div>
 </template>
 <script>
-
+import {mapState} from "vuex";
 export default {
     data() {
         return {
@@ -30,6 +30,9 @@ export default {
             } 
         }
     },
+    computed:{
+        ...mapState(['imgHeader'])
+    }
     
 }
 </script>

@@ -7,8 +7,8 @@
                     <li v-for="(item,index) in allList" :key="index" class="animated flipInX">
                         <div class="title">
                             <div class="title-left">
-                                <img :src="require('../../../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                                <img :src="require('../../../assets/images/home/mall.png')" v-if="item.paltform==101">
+                                <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                                <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                                 <p>{{item.store_name}}</p>
                             </div>
                             <div class="title-right">
@@ -24,10 +24,10 @@
                                <p>返利金币：<span class="red">￥{{item.fanli_gold}}</span></p>
                            </div>
                            <div class="detail-right">
-                               <p class="red" v-if="item.type==4">待返利</p>
-                               <p v-if="item.type==1" class="red">提现中</p>
-                               <p v-if="item.type==3" class="gray">已返利</p>
-                               <p v-if="item.type==2" class="gray">已提现</p>
+                                <p class="red" v-if="item.type==4">{{item.type_msg}}</p>
+                               <p v-if="item.type==1" class="red">{{item.type_msg}}</p>
+                               <p v-if="item.type==3" class="gray">{{item.type_msg}}</p>
+                               <p v-if="item.type==2" class="gray">{{item.type_msg}}</p>
                            </div>
                         </div>
                     </li>
@@ -38,8 +38,8 @@
                     <li v-for="(item,index) in allList" :key="index" class="animated flipInX">
                         <div class="title">
                             <div class="title-left">
-                                <img :src="require('../../../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                                <img :src="require('../../../assets/images/home/mall.png')" v-if="item.paltform==101">
+                                <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                                <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                                 <p>{{item.store_name}}</p>
                             </div>
                             <div class="title-right">
@@ -55,10 +55,10 @@
                                <p>返利金币：<span class="red">￥{{item.fanli_gold}}</span></p>
                            </div>
                            <div class="detail-right">
-                               <p class="red" v-if="item.type==4">待返利</p>
-                               <p v-if="item.type==1" class="red">提现中</p>
-                               <p v-if="item.type==3" class="gray">已返利</p>
-                               <p v-if="item.type==2" class="gray">已提现</p>
+                               <p class="red" v-if="item.type==4">{{item.type_msg}}</p>
+                               <p v-if="item.type==1" class="red">{{item.type_msg}}</p>
+                               <p v-if="item.type==3" class="gray">{{item.type_msg}}</p>
+                               <p v-if="item.type==2" class="gray">{{item.type_msg}}</p>
                            </div>
                         </div>
                     </li>
@@ -69,8 +69,8 @@
                      <li v-for="(item,index) in allList" :key="index" class="animated flipInX">
                         <div class="title">
                             <div class="title-left">
-                                <img :src="require('../../../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                                <img :src="require('../../../assets/images/home/mall.png')" v-if="item.paltform==101">
+                                <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                                <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                                 <p>{{item.store_name}}</p>
                             </div>
                             <div class="title-right">
@@ -86,17 +86,17 @@
                                <p>返利金币：<span class="red">￥{{item.fanli_gold}}</span></p>
                            </div>
                            <div class="detail-right">
-                               <p class="red" v-if="item.type==4">待返利</p>
-                               <p v-if="item.type==1" class="red">提现中</p>
-                               <p v-if="item.type==3" class="gray">已返利</p>
-                               <p v-if="item.type==2" class="gray">已提现</p>
+                               <p class="red" v-if="item.type==4">{{item.type_msg}}</p>
+                               <p v-if="item.type==1" class="red">{{item.type_msg}}</p>
+                               <p v-if="item.type==3" class="gray">{{item.type_msg}}</p>
+                               <p v-if="item.type==2" class="gray">{{item.type_msg}}</p>
                            </div>
                         </div>
                     </li>
                 </ul>
             </van-tab>
             <div class="nogoods" v-if="allList.length==0">
-                 <img :src="require('../../../assets/images/user/none.png')" alt="">
+                 <img :src="imgHeader+'static/user/none.png'" alt="">
                  <p class="gray">暂无明细</p>
             </div>
         </van-tabs>

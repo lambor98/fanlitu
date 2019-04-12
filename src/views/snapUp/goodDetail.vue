@@ -14,8 +14,8 @@
             <div class="good-main">
                 <div class="good-detail">
                     <div class="detail-title">
-                        <img :src="require('../../assets/images/home/taobao.png')" v-if="good.paltform==100">
-                        <img :src="require('../../assets/images/home/mall.png')" v-if="good.paltform==101">
+                        <img :src="imgHeader+'static/home/taobao.png'" v-if="good.paltform==100">
+                        <img :src="imgHeader+'static/home/mall.png'" v-if="good.paltform==101">
                         <p>{{good.goods_name}}</p>
                     </div>
                     <ul class="detail-price">
@@ -44,7 +44,7 @@
                     <p>购买流程</p>
                     <ul>
                         <li v-for="(item,index) in step" :key="index">
-                            <img  :src="require('../../assets/images/shoppingStep/step_03.png')" alt="">
+                            <img  :src="imgHeader+'static/shoppingStep/step_03.png'" alt="">
                             <span>{{index+1}}</span>
                             <span>{{item}}</span>
                         </li>
@@ -64,7 +64,7 @@
             </div>
             <ul class="good-bottom">
                <li @click="shareShow = true">
-                   <img :src="require('../../assets/images/shoppingStep/share.png')" alt="">
+                   <img :src="imgHeader+'static/shoppingStep/share.png'" alt="">
                </li>
                <li @click="snapUp">
                    立即抢购
@@ -162,6 +162,7 @@ export default {
 
     },
     mounted(){
+        
         this.isLogin()
         let {id,tId} = this.$route.query;
         if(!id && !tId){

@@ -13,7 +13,7 @@
             </li>
         </ul>
          <div class="nogoods" v-if="list.length==0">
-            <img :src="require('../../../assets/images/user/none.png')" alt="">
+            <img :src="imgHeader+'static/user/none.png'" alt="">
             <p>暂时没有明细</p>
         </div>
  
@@ -29,7 +29,7 @@ export default {
         Top
     },
     computed:{
-        ...mapState(['url'])
+        ...mapState(['url',"imgHeader"])
     },
     mounted(){
         axios.post(this.url+"/activity/invite_list").then(res=>{

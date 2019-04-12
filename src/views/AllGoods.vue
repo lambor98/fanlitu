@@ -48,7 +48,7 @@
         </van-dialog>
         <Footer/>
         <div class="nogoods" v-if="goodsinfo.length==0">
-            <img :src="require('../assets/images/user/none.png')" alt="">
+            <img :src="imgHeader+'static/user/none.png'" alt="">
             <p>暂时没有商品呢</p>
         </div>
     </div>
@@ -102,7 +102,7 @@ export default {
         Done,
     },
     computed:{
-        ...mapState(["url","cancelReason"])
+        ...mapState(["url","cancelReason","imgHeader"])
     },
     methods:{
         ...mapActions(["isLogin","getReason"]),

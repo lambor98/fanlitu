@@ -1,21 +1,27 @@
 <template>
   <div id="app">
     <router-view/>
-    <img  v-if="deep"  class="backTop" @click="backTop"  :src="require('./assets/images/home/backTop.png')" alt="">
+    <img
+      v-if="deep"
+      class="backTop"
+      @click="backTop"
+      :src="require('./assets/images/home/backTop.png')"
+      alt
+    >
   </div>
 </template>
 <script>
 // import async from "async"
 // import {Toast} from "vant"
 export default {
-  data(){
-    return{
-      deep:false,
-      timer:null,
-      speed:0,
-    }
+  data() {
+    return {
+      deep: false,
+      timer: null,
+      speed: 0
+    };
   },
-  mounted(){
+  mounted() {
     // console.time("wh")
     // async.series(
     // [
@@ -34,52 +40,52 @@ export default {
     //   console.log(result);
     //   console.timeEnd("wh")
     // });
-    window.onscroll = ()=>{
-        let scroll = null;
-        if(document.documentElement.scrollTop){
-            scroll = document.documentElement.scrollTop
-        }else{
-            scroll = document.body.scrollTop
-        }
-        if(scroll >= 700){
-            this.deep = true
-
-        }else{
-            this.deep = false
-        }
-    }
-  },
-    methods:{
-      backTop(){
-        clearInterval(this.timer)
-        this.speed = (document.documentElement.scrollTop || document.body.scrollTop)*0.1
-        this.timer=setInterval(()=>{
-          let scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-          if(document.documentElement.scrollTop){
-              document.documentElement.scrollTop = scrollTop - this.speed
-          }else{
-              document.body.scrollTop = scrollTop - this.speed
-          }
-            if(scrollTop<=0){
-              clearInterval(this.timer);
-            }
-        },10)
-
+    window.onscroll = () => {
+      //滚动条监控
+      let scroll = null;
+      if (document.documentElement.scrollTop) {
+        scroll = document.documentElement.scrollTop;
+      } else {
+        scroll = document.body.scrollTop;
       }
-    },
-
-
-}
+      if (scroll >= 700) {
+        this.deep = true;
+      } else {
+        this.deep = false;
+      }
+    };
+  },
+  methods: {
+    backTop() {
+      //返回顶部操作
+      clearInterval(this.timer);
+      this.speed =
+        (document.documentElement.scrollTop || document.body.scrollTop) * 0.1;
+      this.timer = setInterval(() => {
+        let scrollTop =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (document.documentElement.scrollTop) {
+          document.documentElement.scrollTop = scrollTop - this.speed;
+        } else {
+          document.body.scrollTop = scrollTop - this.speed;
+        }
+        if (scrollTop <= 0) {
+          clearInterval(this.timer);
+        }
+      }, 10);
+    }
+  }
+};
 </script>
 <style lang="scss" scoped>
-  .backTop{
-    position: fixed;
-    bottom: 1.5rem;
-    width: .6rem;
-    right: .2rem;
-    opacity: .7;
-    z-index: 9999;
-  }
+.backTop {
+  position: fixed;
+  bottom: 1.5rem;
+  width: 0.6rem;
+  right: 0.2rem;
+  opacity: 0.7;
+  z-index: 9999;
+}
 </style>
 
 

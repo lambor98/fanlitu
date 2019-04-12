@@ -4,7 +4,7 @@
         <div class="top-box">
             <div class="main-info">
                 <div class="user-head" v-if="userinfo.user_name">
-                    <img :src="userinfo.avatar==''?require('../assets/images/user/wang.png'):userinfo.avatar" alt="">
+                    <img :src="userinfo.avatar==''?imgHeader+'static/user/wang.png':userinfo.avatar" alt="">
                     <p>{{userinfo.user_name}}</p>
                     <p v-show="2<1">会员到期时间:</p>   
                     <p v-show="2<1">会员续费</p>
@@ -20,7 +20,7 @@
         </div>
         <div class="notice">
             <div class="horn">
-                <img :src="require('../assets/images/user/news.png')" alt="">
+                <img :src="imgHeader+'static/user/news.png'" alt="">
             </div>
             <div class="notice-txt">
 
@@ -36,7 +36,7 @@
                 </router-link>
                 <div class="order-list">
                     <ul>
-                        <router-link :to="{name:'allgoods',query:{type:item.type}}" tag="li" v-for="(item,index) in orderList" :key="index">
+                        <router-link :to="{path:'/allgoods',query:{type:item.type}}" tag="li" v-for="(item,index) in orderList" :key="index">
                             <i>
                                 <img :src="item.img" alt="">
                             </i>
@@ -66,7 +66,8 @@
                         </li>
                     </ul>
                 </div>
-                <button class="goInvi" @click="$router.push({name:'invitation'})">前去邀请</button>
+                <router-link tag="button" class="goInvi" to="/invitation">前去邀请</router-link>
+                <!-- <button  @click="$router.push({name:'invitation'})">前去邀请</button> -->
             </div>
             <div class="menuList">
                 <ul>
@@ -149,7 +150,7 @@ export default {
       }
     },
     computed:{
-        ...mapState(["userinfo","url","userState"])
+        ...mapState(["userinfo","url","userState","imgHeader"])
     }
 }
 </script>

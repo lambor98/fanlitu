@@ -4,6 +4,10 @@
         <van-notice-bar
         text="申请必中试用申请，100%获得中奖机会! 申请必中试用申请,100%获得中奖机会!"
         />
+        <div class="order_msg">
+            <p>订单号:<span  id="order_id">{{order.order_sn}}</span> </p>
+            <van-button type="warning" size="small" class="orderCopy" data-clipboard-target="#order_id" @click="copyOrder">复制订单号</van-button>
+        </div>
         <div class="goods">
             <img :src="good.master_pic_id?imgHeader+good.master_pic_id:'http://iph.href.lu/200x200'" alt="">
             <div class="goods-right">
@@ -55,15 +59,38 @@
                     <span class="blue">如何升级手机淘宝版本</span>
                 </li>
             </ul>
+             <!-- <ul class="step" v-if="good.is_link==1">
+                <li>
+                    <p>复制淘口令后打开手机淘宝APP</p> 
+                    <span>
+                        商品名称：{{good.goods_name}}
+                    </span>
+                </li>
+            </ul> -->
             <van-cell-group>
                 <van-field
+                v-model="copyTaoKey"
+                center
+                label="复制淘口令"
+                placeholder="请输入淘口令"
+                id="txt"
+                v-if="good.is_link==1"  
+                >  
+                <!-- 是否是淘口令下单  is_link=1 是 -->
+                <!-- :readonly="good.is_link==1?true:false"    -->
+                 <van-button slot="button" size="small" class="copyBtn" :type="btnType" data-clipboard-target="#txt" @click="copy">复制淘口令</van-button>   
+                </van-field>
+                 <van-field
                 v-model="taoKey"
                 center
                 clearable
                 label="输入淘口令"
                 placeholder="请输入淘口令"
+                v-if="order.order_status!=21"
                 >
-                 <van-button slot="button" size="small" :type="btnType" @click="checkKey">{{btnTxt}}</van-button>   
+                <!-- order_status=21 该订单为驳回订单，不显示淘口令验证 -->
+                <!-- :readonly="good.is_link==1?true:false"    -->
+                 <van-button slot="button" size="small" :type="btnType" @click="checkKey">{{btnTxt}}</van-button> 
                 </van-field>
             
                 <van-field label="输入订单号" v-model='orderNum' placeholder="请输入订单号" />
@@ -100,6 +127,8 @@ import axios from "axios"
 import {mapState,mapActions} from "vuex"
 import {Toast} from "vant"
 import lrz from "lrz"
+import Clipboard from 'clipboard'
+import { constants } from 'fs';
 export default {
     data(){
         return{
@@ -111,6 +140,8 @@ export default {
             good:{},    //商品信息
             goodType:{}, //商品种类
             taoKey:null, //淘宝口令
+            copyTaoKey:null,
+            copyTaoKey2:null, //为了保证可以复制，并且不会被改变
             orderId:null,     //订单id
             tradeId:null,      //主任务id
             btnType:"warning", //淘宝口令按钮颜色
@@ -120,7 +151,9 @@ export default {
             radio:null,        //放弃单选框值
             otherReason:null, //取消原因
             repay:false,  //是否是重新支付,
-            Height:0 //浏览器初始前高度
+            Height:0, //浏览器初始前高度,
+            order:[],  //订单信息
+            flag: false , //验证输入标示
         }
     },
     components:{
@@ -167,22 +200,40 @@ export default {
                 Toast.fail("请填写淘口令")
             }
         },
+        yanZhen(){
+            if(this.orderNum && this.price && this.imgName){
+                let num = /^[0-9]*$/;
+                console.log(num.test(this.orderNum))
+                if(num.test(this.orderNum) && num.test(this.price)){
+                    this.flag = true
+                }else{
+                    this.flag = false
+                    Toast.fail("单号和加个必须是数字")
+                }
+            }else{
+                this.flag = false;
+                Toast.fail("请填写完整的订单信息")
+            }
+        },
         submit(){  //提交订单
-            if(this.btnType=="danger"){
-                if(this.orderNum && this.price && this.imgName){
+            this.yanZhen()
+            if(this.order.order_status == 21){  //是否是重新支付
+                this.btnType = "danger"         //是则无需验证淘口令
+            }
+            if(this.btnType=="danger" || this.good.is_link==1){
+                if(this.flag){
                     let pay_type = this.repay?2:1;
-                    axios.post(this.url+"/order/order_pay",{order_id:this.orderId,httpurl:this.taoKey,payment_pic:this.imgName,third_order_sn:this.orderNum,third_order_amount:this.price,pay_type}).then(res=>{
+                    let type  =  this.good.is_link
+                    axios.post(this.url+"/order/order_pay",{type,order_id:this.orderId,httpurl:this.taoKey,payment_pic:this.imgName,third_order_sn:this.orderNum,third_order_amount:this.price,pay_type}).then(res=>{
                         if(res.data.status=="1000"){
                             Toast.success(res.data.msg)
                             this.$router.replace({name:'done'})
                         }else{
-                            Toast.fail(res.data.msg)
+                            Toast.fail("提示："+res.data.msg)
                         }
                     }).catch(err=>{
                         Toast.fail("请重试："+err)
                     })
-                }else{
-                    Toast.fail("请填写完整的订单信息")
                 }
             }else{
                 Toast.fail("请验证您的淘口令")
@@ -217,6 +268,26 @@ export default {
                 }
             
             })
+        },
+        copy(){
+            let clipboards=new Clipboard('.copyBtn');
+            clipboards.on('success', (e)=>{
+                Toast.success("复制成功")
+                e.clearSelection();
+            });
+            clipboards.on('error', ()=> {
+               Toast.fail("复制失败，请手动或者重试")
+            });
+        },
+        copyOrder(){
+            let clipboards=new Clipboard('.orderCopy');
+            clipboards.on('success', (e)=>{
+                Toast.success("复制成功")
+                e.clearSelection();
+            });
+            clipboards.on('error', ()=> {
+               Toast.fail("复制失败，请手动或者重试")
+            });
         }
     },
     mounted(){
@@ -229,7 +300,12 @@ export default {
             axios.post(this.url+"/order/get_order_pay",{id:this.tradeId}).then(res=>{
                 if(res.data.status=="1000"){
                     this.good = res.data.data.goods_info
+                    this.order = res.data.data.order_info
                     this.goodType = res.data.data
+                    // if(this.good.is_link==1){
+                    this.copyTaoKey = this.good.tao_link;
+                    this.copyTaoKey2 = this.good.tao_link;
+                    // }
                 }else{
                     Toast.fail(res.data.msg)
                 }
@@ -254,6 +330,11 @@ export default {
                 })
                 return str
             }
+        }
+    },
+    watch:{
+        copyTaoKey(val,old){
+              this.copyTaoKey = this.copyTaoKey2;
         }
     }
 }

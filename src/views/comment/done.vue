@@ -2,7 +2,7 @@
     <div class="done box">
         <Top title="评价商品"/>
         <div class="success-tip">
-            <img :src="require('../../assets/images/shoppingStep/success.png')" alt="">
+            <img :src="imgHeader+'static/shoppingStep/success.png'" alt="">
             <p>您的抢成功提交评价</p>
             <p class="tip">商家会在<span class="red">48</span>小时内审核评价，若超时系统会自动审核通过</p>
             <p @click="$router.replace({name:'home'})">继续抢购</p>

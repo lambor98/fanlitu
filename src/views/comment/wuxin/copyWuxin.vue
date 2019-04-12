@@ -34,7 +34,7 @@ export default {
     props:["info"],
     data(){
         return{
-            path:require('../../../assets/images/user/img1.png'),
+            path:require("../../../assets/images/user/img1.png"),
             txt:null,      //评论
             imgName:null,  //图片地址
         }
@@ -53,12 +53,12 @@ export default {
                         this.imgName = res.data.data.filedir
                     }else{
                         Toast.faile("图片上传失败")
-                         this.imgName = require('../../../assets/images/user/img1.png')
+                         this.imgName = this.imgHeader+'static/user/img1.png'
                     }
                 }).catch(err=>{
                     if(err){
                         Toast.fail("上传失败,请重新上传")
-                         this.imgName = require('../../../assets/images/user/img1.png')
+                         this.imgName = this.imgHeader+'static/user/img1.png'
                     }
                 })
             })

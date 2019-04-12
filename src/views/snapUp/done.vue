@@ -2,7 +2,7 @@
     <div class="done box">
         <Top title="抢购"/>
         <div class="success-tip">
-            <img :src="require('../../assets/images/shoppingStep/success.png')" alt="">
+            <img :src="imgHeader+'static/shoppingStep/success.png'" alt="">
             <p>您的抢购申请已提交，继续抢购吧！</p>
             <p @click="$router.replace({name:'home'})">继续抢购</p>
         </div>

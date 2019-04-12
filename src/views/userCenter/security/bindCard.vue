@@ -14,7 +14,7 @@
                 <van-cell title="上传身份证照片" />
                 <div class="jietu">
                     <span class="tip">查看示例截图></span>
-                    <img :src="path?path:require('../../../assets/images/user/img1.png')" alt="" @click="openFile">
+                    <img :src="path?path:imgHeader+'static/user/img1.png'" alt="" @click="openFile">
                     <p>身份证照片</p>
                     <input accept="image/*" name="img" id="imgFile" type="file" v-show="2>3" @change="upload">
                 </div>
@@ -112,13 +112,13 @@ export default {
                             that.imgName = res.data.data.filedir;
                         }else{
                             Toast.fail(res.data.msg)
-                            that.imgName =require('../../../assets/images/user/img1.png');
+                            that.imgName =this.imgHeader+'static/user/img1.png';
                         }
                 })
             }).catch((error)=>{
                 if(error){
                     alert("上传失败，请重试")
-                    that.imgName = require('../../../assets/images/user/img1.png');
+                    that.imgName = this.imgHeader+'static/user/img1.png';
                 }
             })
            
@@ -213,7 +213,7 @@ export default {
 
     },
     computed:{
-        ...mapState(["url","userSecure","isCardBind"])
+        ...mapState(["url","userSecure","isCardBind","imgHeader"])
     }
     
     

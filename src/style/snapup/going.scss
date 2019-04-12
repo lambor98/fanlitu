@@ -6,6 +6,13 @@
     .red{
         color:  red !important;
     }
+    .order_msg{
+        margin: .2rem .2rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+
+    }
     .goods{
         margin: .2rem .2rem;
         display: flex;
@@ -22,12 +29,16 @@
             padding-left: .1rem;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-around;
             p{
                 width: 100%;
-                overflow: hidden;
+                // overflow: hidden;
                 white-space: nowrap;
-                text-overflow: ellipsis;
+                // text-overflow: ellipsis;
+                &:nth-child(3){
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
             }
         }
         .cancel{

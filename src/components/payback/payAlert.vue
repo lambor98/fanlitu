@@ -1,7 +1,7 @@
 <template>
     <div class="payAlert">
         <div class="alert-box">
-            <img :src="require('../../assets/images/user/payback.png')" alt="">
+            <img :src="imgHeader+'static/user/payback.png'" alt="">
             <p class="title">申请提现</p>
             <input v-model="pwd" readonly type="password" placeholder="输入提现密码" autocomplete="off" @focus="show=true" @click="show=true">
             <p class="btn" @click="confirm">确定提现</p>
@@ -65,7 +65,7 @@ export default {
         }
     },
     computed:{
-        ...mapState(['url'])
+        ...mapState(['url',"imgHeader"])
     }
     
 }

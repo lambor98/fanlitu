@@ -2,7 +2,7 @@
     <div class="alert-box">
         <div class="success" v-if="done==1">
             <div class="successbox box">
-                <img :src="require('../../assets/images/shoppingStep/reward.png')" alt="">
+                <img :src="imgHeader+'static/shoppingStep/reward.png'" alt="">
                 <div class="abs tip2">
                     <p>获奖商品只有<span>1</span>小时下单时间</p>
                     <p>请及时下单</p>
@@ -30,19 +30,19 @@
                         </div>
                     </li>
                 </ul>
-                <img @click="order" class="abs btn" :src="require('../../assets/images/shoppingStep/order.png')" alt="">
+                <img @click="order" class="abs btn" :src="imgHeader+'static/shoppingStep/order.png'" alt="">
             </div>
         </div>
         <div class="fail" v-if="done==2">
             <div class="failbox box">
-                <img :src="require('../../assets/images/shoppingStep/noReward.png')" alt="">
+                <img :src="imgHeader+'static/shoppingStep/noReward.png'" alt="">
                
-                <img @click="$router.go(-1)" class="abs btn" :src="require('../../assets/images/shoppingStep/continue.png')" alt="">
+                <img @click="$router.go(-1)" class="abs btn" :src="imgHeader+'static/shoppingStep/continue.png'" alt="">
             </div>
         </div>
          <div class="success" v-if="done==3">
             <div class="successbox box">
-                <img :src="require('../../assets/images/shoppingStep/pending.png')" alt="">
+                <img :src="imgHeader+'static/shoppingStep/pending.png'" alt="">
                 <div class="abs backTime">
                    <p>距离活动结束仅剩</p>
                 </div>
@@ -69,13 +69,14 @@
                         </div>
                     </li>
                 </ul>
-                <img @click="order" class="abs btn" :src="require('../../assets/images/shoppingStep/order.png')" alt="">
+                <img @click="order" class="abs btn" :src="imgHeader+'static/shoppingStep/order.png'" alt="">
             </div>
         </div>
     </div>
 </template>
 <script>
-import "./alert.scss"
+import "./alert.scss";
+import {mapState} from "vuex";
 export default {
     props:["done","order_id","trade_id","mins","secs"],
     data(){
@@ -116,6 +117,9 @@ export default {
                 this.sec = this.secs;
             }
         }
+    },
+    computed:{
+        ...mapState(["imgHeader"])
     }
  
         

@@ -39,8 +39,8 @@
                   </div>
                   <div class="content-right">
                       <div class="right-title">
-                      <img  :src="require('../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                      <img :src="require('../assets/images/home/mall.png')" v-if="item.paltform==101">
+                      <img  :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                      <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                       <p>
                           {{item.goods_name }}
                       </p>
@@ -82,8 +82,8 @@
                   </div>
                   <div class="content-right">
                       <div class="right-title">
-                      <img :src="require('../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                      <img :src="require('../assets/images/home/mall.png')" v-if="item.paltform==101">
+                      <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                      <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                       <p>
                           {{item.goods_name }}
                       </p>
@@ -125,8 +125,8 @@
                   </div>
                   <div class="content-right">
                       <div class="right-title">
-                      <img :src="require('../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                      <img :src="require('../assets/images/home/mall.png')" v-if="item.paltform==101">
+                      <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                      <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                       <p>
                           {{item.goods_name }}
                       </p>
@@ -167,8 +167,8 @@
                   </div>
                   <div class="content-right">
                       <div class="right-title">
-                      <img :src="require('../assets/images/home/taobao.png')" v-if="item.paltform==100" alt="">
-                      <img :src="require('../assets/images/home/mall.png')" v-if="item.paltform==101">
+                      <img :src="imgHeader+'static/home/taobao.png'" v-if="item.paltform==100" alt="">
+                      <img :src="imgHeader+'static/home/mall.png'" v-if="item.paltform==101">
                       <p>
                           {{item.goods_name }}
                       </p>
@@ -201,7 +201,7 @@
     
   
     <div class="nogoods" v-if="todayList.length==0&&nowList.length==0&&beforeList.length==0&&rightAway.length==0">
-        <img :src="require('../assets/images/user/none.png')" alt="">
+        <img :src="imgHeader+'static/user/none.png'" alt="">
         <p>暂时没有商品呢</p>
     </div>
     <Footer/>

@@ -3,16 +3,16 @@
         <Top title="快速登录"/>
         <form action="" onsubmit="return false">
             <div class="loginbox">
-                <img :src="require('../../assets/images/login/tel.png')" alt="">
+                <img :src="imgHeader+'static/login/tel.png'" alt="">
                 <input type="text" placeholder="请输入您的手机号码" v-model="tel" @change="worn1=false">
                 <span class="tel-worn worn" v-if="worn1">
                     手机号格式出错
                 </span>
-                <img :src="require('../../assets/images/login/clear.png')" alt="" v-if="tel!=''" @click="tel=''">
+                <img :src="imgHeader+'static/login/clear.png'" alt="" v-if="tel!=''" @click="tel=''">
             </div>
             <div class="codebox">
                 <div class="code-left">
-                    <img :src="require('../../assets/images/login/code.png')" alt="">
+                    <img :src="imgHeader+'static/login/code.png'" alt="">
                     <input type="text" placeholder="请输入图形验证码" v-model="imgCode">
                 </div>
                 <div class="code-right">
@@ -24,7 +24,7 @@
             </div>
             <div class="codebox">
                 <div class="code-left">
-                    <img :src="require('../../assets/images/login/pwd.png')" alt="">
+                    <img :src="imgHeader+'static/login/pwd.png'" alt="">
                     <input type="text" placeholder="请填写你的手机验证码" v-model="telCode">
                 </div>
                 <div class="code-right">
@@ -138,7 +138,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(["randomCode","url"])
+        ...mapState(["randomCode","url","imgHeader"])
     },
     components:{
         Top

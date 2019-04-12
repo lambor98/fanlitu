@@ -15,7 +15,7 @@
             <van-cell title="上传淘宝等级截图"  />
             <span class="tip">查看如何上传等级事例截图></span>
             <div class="jietu">
-                <img :src="path?path:require('../../../assets/images/user/img1.png')" @click="openFile" alt="">
+                <img :src="path?path:imgHeader+'static/user/img1.png'" @click="openFile" alt="">
                 <input accept="image/*" name="img" id="imgFile" type="file" @change="upload" v-show="1>2">
                 <p>淘宝账号等级截图</p>
                 <ul>
@@ -94,13 +94,13 @@ export default {
                         that.imgName = res.data.data.filedir;
                     }else{
                         Toast.fail(res.data.msg)
-                        that.imgName =require('../../../assets/images/user/img1.png');
+                        that.imgName =this.imgHeader+'static/user/img1.png';
                     }
                 })
             }).catch((error)=>{
                 if(error){
                   Toast.fail("未知错误,请重试")
-                    that.imgName =require('../../../assets/images/user/img1.png');
+                    that.imgName =this.imgHeader+'static/user/img1.png';
                 }
             })
         },

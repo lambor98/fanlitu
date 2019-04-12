@@ -85,12 +85,12 @@ export default {
                         this.imgName[index]=(res.data.data.filedir)
                     }else{
                         Toast.fail("上传失败")
-                        this.$set(this.path,index,require("../../../assets/images/user/img1.png"))
+                        this.$set(this.path,index,this.imgHeader+'static/user/img1.png')
                     }
                 }).catch(err=>{
                     if(err){
                         Toast.fail("上传失败,请重新上传")
-                        this.$set(this.path,index,require("../../../assets/images/user/img1.png"))
+                        this.$set(this.path,index,this.imgHeader+'static/user/img1.png')
                         
                     }
                 })
@@ -128,7 +128,7 @@ export default {
                 this.txt = this.info.comment;
             }else{   //如果是第一次图文评价
                 for(let i=0;i<this.tu_num;i++){
-                    this.path.push(require("../../../assets/images/user/img1.png"))
+                    this.path.push(this.imgHeader+'static/user/img1.png')
                 }
             }
         }

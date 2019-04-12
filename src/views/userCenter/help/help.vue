@@ -3,7 +3,7 @@
         <Top title="帮助中心"/>
         <ul class="help_top">
             <li v-for="(item,index) in tip" :key="index">
-                <img :src="require('../../../assets/images/help/help'+(index+1)+'.png')" alt="">
+                <img :src="imgHeader+'static/help/help'+(index+1)+'.png'" alt="">
                 <p>{{item}}</p>
             </li>
         </ul>
@@ -43,7 +43,7 @@ export default {
         })
     },
     computed:{
-        ...mapState(["url"])
+        ...mapState(["url","imgHeader"])
     }
     
 }

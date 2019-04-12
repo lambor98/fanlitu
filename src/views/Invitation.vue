@@ -1,7 +1,7 @@
 <template>
     <div class="invia box">
         <Top title="邀请"/>
-        <img class="banner" :src="require('../assets/images/invitation/banner.png')" alt="">
+        <img class="banner" :src="imgHeader+'static/invitation/banner.png'" alt="">
         <div class="main">
             <div class="tip">
                 <p>
@@ -16,7 +16,7 @@
                 <p>当前返利额度{{invInfo.fanli}}，还差{{invInfo.need_people}}人获得{{invInfo.next_fanli}}的返利额度</p>
             </div>
             <div class="rules">
-                 <img :src="require('../assets/images/invitation/inv.png')" alt="">
+                 <img :src="imgHeader+'static/invitation/inv.png'" alt="">
                  <ul>
                      <li>邀请1名好友注册并下单即可获得2%返利资格，可获得好友返利金额2%返利额度 </li>
                      <li>邀请3名好友注册并下单即可获得3%返利资格，可获得好友返利金额3%返利额度 </li>
@@ -24,12 +24,12 @@
                  </ul>
             </div>
             <div class="share">
-                <img :src="require('../assets/images/invitation/inv3.png')" alt="">
+                <img :src="imgHeader+'static/invitation/inv3.png'" alt="">
                 <p class="share_tip">点击下方按钮，前去邀请好友</p>
                     <share v-if="inv" :config="config"></share>
             </div>
             <div class="rank">  
-                <img :src="require('../assets/images/invitation/inv1.png')" alt="">
+                <img :src="imgHeader+'static/invitation/inv1.png'" alt="">
                 <table>
                     <tr>
                         <td>排名</td>
@@ -46,7 +46,7 @@
                 </table>
             </div>
             <div class="ques">
-                <img :src="require('../assets/images/invitation/inv2.png')" alt="">
+                <img :src="imgHeader+'static/invitation/inv2.png'" alt="">
                 <ul>
                     <li>1.好友的购物的邀请奖励什么时候可以到账呢</li>
                     <li>答：您的好友确认收货并拿到自己的返利金币后，您的邀请奖励也会在24小时内到账哦</li>
@@ -58,6 +58,7 @@
         <Footer/>
     </div>
 </template>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script>
 import Footer from '../components/footer.vue'
 import Top from '../components/top/homeTop.vue'
@@ -87,10 +88,11 @@ export default {
         }
     },
     computed:{
-        ...mapState(["url","http"])
+        ...mapState(["url","http","imgHeader"])
     },
     created(){
         this.isLogin()
+        Toast.loading("拼命加载")
          axios.post(this.url+"/activity/invitation").then(res=>{
              if(res.data.status=="1000"){
                 this.invInfo = res.data.data.invite
@@ -98,6 +100,7 @@ export default {
                 let inv = window.location.host+"/#/register?in="+res.data.data.invent_code //附上邀请码
                 this.config.url = inv
                 this.inv= true; 
+                Toast.clear();
              }
             
         }).catch(err=>{
@@ -109,7 +112,7 @@ export default {
         document.body.scrollTop = 0;
     },
     methods:{
-        ...mapActions(["isLogin"])
+        ...mapActions(["isLogin"]),
     },
     filters:{
         phone:(val)=>{ //电话号码隐藏

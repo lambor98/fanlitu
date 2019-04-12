@@ -3,21 +3,21 @@
         <Top title="会员登入"/>
         <form action="" onsubmit="return false">
             <div class="loginbox">
-                <img :src="require('../../assets/images/login/tel.png')" alt="">
+                <img :src="imgHeader+'static/login/tel.png'" alt="">
                 <input type="text" placeholder="请输入您的手机号码" v-model="tel" @change="worn1=false">
                 <span class="tel-worn worn" v-if="worn1">
                     请输入手机号码
                 </span>
-                <img :src="require('../../assets/images/login/clear.png')" alt="" v-if="tel!=''" @click="tel=''">
+                <img :src="imgHeader+'static/login/clear.png'" alt="" v-if="tel!=''" @click="tel=''">
             </div>
             <div class="loginbox">
-                <img :src="require('../../assets/images/login/pwd.png')" alt="">
+                <img :src="imgHeader+'static/login/pwd.png'" alt="">
                 <input :type="isShow?'text':'password'" placeholder="请输入您的密码" v-model="pwd" @change="worn2=false">
                 <span class="pwd-worn worn" v-if="worn2">
                     请输入密码
                 </span>
-                <img :src="require('../../assets/images/login/hide.png')" alt="" v-if="!isShow" @click="isShow=!isShow">
-                <img :src="require('../../assets/images/login/show.png')" alt="" v-if="isShow" @click="isShow=!isShow">
+                <img :src="imgHeader+'static/login/hide.png'" alt="" v-if="!isShow" @click="isShow=!isShow">
+                <img :src="imgHeader+'static/login/show.png'" alt="" v-if="isShow" @click="isShow=!isShow">
             </div>
             <div class="agreement">
                 <span class="agm-worn" v-show="worn3">请同意协议</span>
@@ -67,7 +67,7 @@ export default {
         Top
     },
     computed: {
-        ...mapState(["url","proxy","http"])
+        ...mapState(["url","proxy","http","imgHeader"])
     },
     mounted() {
         

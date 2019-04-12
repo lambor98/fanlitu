@@ -3,7 +3,7 @@
         <Top title="个人信息"/>
         <div @click="headerVisible=true">
             <mt-cell title="头像" is-link>
-                <img :src="userinfo.avatar==''?require('../../../assets/images/user/wang.png'):userinfo.avatar"  alt="">
+                <img :src="userinfo.avatar==''?imgHeader+'static/user/wang.png':userinfo.avatar"  alt="">
             </mt-cell>
              <mt-actionsheet
             :actions="actions"
@@ -207,7 +207,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(["userinfo","url"])
+        ...mapState(["userinfo","url","imgHeader"])
     },
     filters:{
         sex:(value)=>{

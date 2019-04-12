@@ -7,16 +7,16 @@
         
         <form action="" onsubmit="return false" autocomplete="new-password">
             <div class="loginbox">
-                <img :src="require('../../../assets/images/login/tel.png')" alt="">
+                <img :src="imgHeader+'static/login/tel.png'" alt="">
                 <input type="text" placeholder="请输入您的手机号码" v-model="tel" @change="worn1=false">
                 <span class="tel-worn worn" v-if="worn1">
                     手机号格式出错
                 </span>
-                <img :src="require('../../../assets/images/login/clear.png')" alt="" v-if="tel!=''" @click="tel=''">
+                <img :src="imgHeader+'static/login/clear.png'" alt="" v-if="tel!=''" @click="tel=''">
             </div>
             <div class="codebox">
                 <div class="code-left">
-                    <img :src="require('../../../assets/images/login/code.png')" alt="">
+                    <img :src="imgHeader+'static/login/code.png'" alt="">
                     <input type="text" placeholder="请输入图形验证码" v-model="imgCode">
                 </div>
                 <div class="code-right">
@@ -28,7 +28,7 @@
             </div>
             <div class="codebox">
                 <div class="code-left">
-                    <img :src="require('../../../assets/images/login/pwd.png')" alt="">
+                    <img :src="imgHeader+'static/login/pwd.png'" alt="">
                     <input type="text" placeholder="请填写你的验证码" v-model="telCode">
                 </div>
                 <div class="code-right">
@@ -39,13 +39,13 @@
                 </span>
             </div>
              <div class="loginbox">
-                <img :src="require('../../../assets/images/login/pwd.png')" alt="">
+                <img :src="imgHeader+'static/login/pwd.png'" alt="">
                 <input :type="isShow?'text':'password'" placeholder="请输入密码，6-20位数字和字母组合" v-model="pwd" @change="worn2=false" autocomplete="new-password">
                 <span class="pwd-worn worn" v-if="worn5">
                      密码应为6-20位，不可为纯数字，不可包含特殊字符
                 </span>
-                <img :src="require('../../../assets/images/login/hide.png')" alt="" v-if="!isShow" @click="isShow=!isShow">
-                <img :src="require('../../../assets/images/login/show.png')" alt="" v-if="isShow" @click="isShow=!isShow">
+                <img :src="imgHeader+'static/login/hide.png'" alt="" v-if="!isShow" @click="isShow=!isShow">
+                <img :src="imgHeader+'static/login/show.png'" alt="" v-if="isShow" @click="isShow=!isShow">
             </div>
              
              <span class="btn" @click="reset">
@@ -143,7 +143,7 @@ export default {
         }
     },
     computed: {
-        ...mapState(["randomCode","url"])
+        ...mapState(["randomCode","url","imgHeader"])
     },
     components:{
         Top

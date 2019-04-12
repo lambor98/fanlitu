@@ -2,7 +2,7 @@
     <div class="security box">
         <Top title="账户安全"/>
         <van-cell title="绑定淘宝买号" is-link :value="userState.buyer_status?userState.buyer_status:'请设置'" @click="$router.push('bind/bindTaoBao')"/>
-        <van-cell title="绑定银行卡" is-link :value="userState.card_status?userState.card_status:'请设置'" @click="$router.push('bind/bindCard')"/>
+        <van-cell title="绑定银行卡" :is-link="userState.cardma==2?true:false" :value="userState.card_status?userState.card_status:'请设置'" @click="userState.cardma==2?$router.push('bind/bindCard'):null"/>
         <van-cell title="设置提现密码" is-link :value="userState.is_set_pwd=='请设置'?'请设置':'修改'" @click="$router.push('bind/setCashPwd')"/>
         <van-cell title="设置登录密码" is-link value="修改" @click="$router.push('bind/setLoginPwd')"/>
         <!-- <van-button type="danger" size="large">提交</van-button> -->
@@ -25,7 +25,7 @@ export default {
 
     },
     computed: {
-        ...mapState(["url"])
+        ...mapState(["url","imgHeader"])
     },
     mounted(){
         axios.post(this.url+"/bind_info/secure").then(res=>{

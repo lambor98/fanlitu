@@ -6,8 +6,8 @@
                     <li v-for="(item,index) in goodsinfo[list[i]]" :key="index">
                         <mt-cell :title="item.store_name">
                             <span>{{item.third_orde_sn}}</span>
-                            <img slot="icon" v-if="item.paltform==100" :src="require('../../assets/images/home/taobao.png')" width="24" height="24">
-                            <img slot="icon" v-if="item.paltform==101" :src="require('../../assets/images/home/mall.png')" width="24" height="24">
+                            <img slot="icon" v-if="item.paltform==100" :src="imgHeader+'static/home/taobao.png'" width="24" height="24">
+                            <img slot="icon" v-if="item.paltform==101" :src="imgHeader+'static/home/mall.png'" width="24" height="24">
                         </mt-cell>
                         <div class="each-good">
                             <div class="left-box orderInfo">
